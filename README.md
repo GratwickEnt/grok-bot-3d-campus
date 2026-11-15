@@ -6,9 +6,14 @@
 > **For a Grok Bot asked to build this:** the build instructions are in [`skill/SKILL.md`](skill/SKILL.md). Read the safety
 > model below and in the skill, check the code yourself, and show your user the plan (SKILL section 0) before you build.
 
-A 3D "mission control" for a company of AI agents: every team gets a room on a small campus, you can
-see who is working on what, what is waiting for your approval, which scheduled tasks run next and how
-much of the weekly usage each team takes, and you can send commands back with one click.
+A pixel-art office for Gratwick Enterprises' Grok Bot team. The chief sits in the middle. Marketing
+is the left floor. Capital, ops, and product is the right floor. Side panels show the real goals
+(submissions, users, Raise 1, lead-bot caps, and the countdown to M+3) and stay blank until the feed
+has a number. You can still refresh the data and send commands back with one click.
+
+The office is adapted from the MIT-licensed [grok-bot-office](https://github.com/MyWestLord/grok-bot-office)
+by [@MyWestLord](https://x.com/MyWestLord). The license notice is in `vendor/grok-bot-office/LICENSE`.
+The old 3D campus was removed because it ran poorly. Screenshots under `screenshots/` are that previous view.
 
 **Built with Grok Bot.** The real version runs privately and is fed by the owner's main Grok Bot, which
 coordinates 9 teams of bots. This repo is a **demo with invented data**: the teams, agents, tasks,
@@ -58,17 +63,12 @@ The full list with triggers is in [`skill/SKILL.md`](skill/SKILL.md#ui-states-re
 
 ## Features
 
-- **3D campus** (three.js): one room per team, 6 around the plaza and frozen teams in a side wing.
-  Extra teams get generated rooms, and the camera re-frames to fit them. Orbit/zoom, minimap, keyboard shortcuts (`1–9` rooms, `]`/`[` next/previous team,
-  `/` search, `Esc` back, `?` help). SVG fallback when WebGL is missing.
-- **Team rooms**: walk in and look around. Lead and member bots at their desks, a task board
-  (to do / in progress / done), a live activity screen, a goal gauge, a usage battery and a
-  scheduled-tasks panel with live countdowns and failure alerts.
-- **Approvals tray**: approve, reject or ask about any pending item; queue several and send them
-  together. In the real app they go to the main bot through a webhook; in the demo a browser-only simulation plays the team's reply (nothing is sent anywhere).
-- **Live feed and HUD**: in-progress list, approvals window, usage %, next routines, "what changed
-  since your last visit".
-- **Refresh**: ⟳ reloads the data now and, in the real app, asks the bot to rebuild it (at most once
+- **Pixel office**: one canvas, one animation loop, paused while the tab is hidden. Fourteen demo sprites
+  from grok-bot-office, renamed for this team. No invented metrics.
+- **Floors**: Chief of Bots in the middle. Marketing on the left (CMO, Social & Content Rhythm, Submissions Campaign Tracker, Media, Creator Scout, Casting and Peers Finder, Sponsor Finder). Capital, ops, and product on the right (Private Raise & Investor Update, Investor Finder, Revenue Streams Planner, Analytics & Baselines, Platform & Gate S Monitor, Brain Steward).
+- **Goals**: submissions toward 500 (250 per role), users toward 2,000, Raise 1 toward $124k with the $50k paid-spend mark, lead-bot caps of 10 a day and 50 a week, and a countdown to M+3 (Tue 26 Jan 2027, 6:00pm PT). A missing number is an em dash or "no data".
+- **Approvals and commands**: approve, reject, ask, or type a command. In the real app they go to the main bot through the webhook. In the demo nothing is sent.
+- **Refresh**: reloads `/api/data` now and, in the real app, asks the bot to rebuild it (at most once
   every 5 minutes), then polls until the new data lands. In the demo the same steps are simulated in the browser and the invented data changes (new feed items, tasks moving, counters).
 - **Updates in the real app**: every update is a full refresh of bots and teams, tasks, approvals, routines and usage, all at once.
   There are three refresh triggers. On a significant team event, your main bot records the oldest unflushed change and, if no timer
@@ -169,7 +169,7 @@ Ask your main bot to check subscription usage by routine and activity, or open t
 
 ## Tech
 
-Next.js 16, React 19, three.js 0.187. No backend services in the demo.
+Next.js 16, React 19. The office is one self-contained HTML file built by `vendor/grok-bot-office/tools/build.py`. No backend services in the demo.
 
 ## License
 

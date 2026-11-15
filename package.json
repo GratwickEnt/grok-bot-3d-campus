@@ -4,6 +4,9 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "build:office": "python3 vendor/grok-bot-office/tools/build.py",
+    "predev": "python3 vendor/grok-bot-office/tools/build.py",
+    "prebuild": "python3 vendor/grok-bot-office/tools/build.py",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -11,18 +14,16 @@
   "dependencies": {
     "next": "16.4.4",
     "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "three": "0.187.0"
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/three": "0.187.0",
     "typescript": "^5"
   },
   "engines": {
     "node": ">=20"
   },
-  "description": "3D control center for a team of AI agents (demo with invented data). Built with Grok Bot."
+  "description": "Gratwick control center: a pixel-art office for the Grok Bot team. Demo feed until the private app is connected."
 }

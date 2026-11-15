@@ -1,6 +1,6 @@
 import { PALETTE } from "../lib/theme";
-export const metadata = { title: "Control Center · Demo", description: "A 3D control center for a team of AI agents. Demo with invented data. Built with Grok Bot." };
-export const viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" as const, themeColor: PALETTE.page };
+export const metadata = { title: "Control Center · Demo", description: "Gratwick control center. Pixel-art office for the Grok Bot team." };
+export const viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" as const, themeColor: "#05070c" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" dir="ltr">
