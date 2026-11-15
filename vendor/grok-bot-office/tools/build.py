@@ -15,7 +15,13 @@ tpl = (OFFICE / "src" / "office.tpl.html").read_text()
 spr = (OFFICE / "src" / "sprites.json").read_text()
 html = tpl.replace("/*SPRITES*/", spr)
 (OFFICE / "src" / "office.html").write_text(html)
-out = REPO / "components" / "office-html.ts"
-out.write_text("export const OFFICE_HTML: string = " + json.dumps(html) + ";\n")
+text = "export const OFFICE_HTML: string = " + json.dumps(html) + ";\n"
+outs = [
+    REPO / "components" / "office-html.ts",
+    REPO / "skill" / "reference" / "components" / "office-html.ts",
+]
 print(f"src/office.html ({len(html) // 1024} kb)")
-print(f"{out.relative_to(REPO)} ({out.stat().st_size // 1024} kb)")
+for out in outs:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text)
+    print(f"{out.relative_to(REPO)} ({out.stat().st_size // 1024} kb)")

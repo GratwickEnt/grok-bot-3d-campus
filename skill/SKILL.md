@@ -72,6 +72,8 @@ The page is the pixel-art office in `vendor/grok-bot-office` (MIT, Copyright (c)
 
 The page you build must use this office. Only the data is different.
 
+**Vercel root directory is `skill/reference`.** That folder is the gated app: the `[k]` private link, `/setup`, admin, `/api/data`, `/api/send`, `robots`, and the office. The repository root is the public demo and has no private link. Do not deploy the repository root, and do not merge to `main` until the project's Root Directory is `skill/reference`. Framework Next.js. Install `npm install`. Build `next build`. No custom output directory.
+
 **Canonical reference: https://grok-bot-3d-campus-demo.vercel.app** (invented data, no login).
 Before you build, open it and take your own reference screenshots, so you know what "done" looks like:
 ```bash

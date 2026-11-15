@@ -1,0 +1,27 @@
+{
+  "name": "control-center",
+  "private": true,
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Private gated control center. Vercel Root Directory must be skill/reference. Do not build the repository root.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0",
+    "next": "16.4.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
