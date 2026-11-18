@@ -63,9 +63,16 @@ ls "$SRC/skill/SKILL.md" "$SRC/skill/reference/scripts/assemble.sh" "$SRC/compon
 
 ---
 
-## Look and feel (must match the reference)
+## Look and feel
 
-The page you build must look **the same** as the public demo. Only the data is different.
+The 3D campus has been replaced. Do not restore three.js, `Campus3D.tsx`, or the old room interior.
+The page is the pixel-art office in `vendor/grok-bot-office` (MIT, Copyright (c) 2026 MyWestLord, https://github.com/MyWestLord/grok-bot-office). Keep that license notice and the @MyWestLord attribution.
+`components/ControlCenter.tsx` is the view: it still loads `/api/data` and posts `/api/send`. Panels and speech bubbles show numbers only when that feed has them. Walking is animated; metrics are not invented.
+`assemble.sh` still copies this UI and the private backend. The checks below that name the old 3D screenshots are historical. Match the office, the private link, and the webhook, not the old campus pictures.
+
+The page you build must use this office. Only the data is different.
+
+**Vercel root directory is `skill/reference`.** That folder is the gated app: the `[k]` private link, `/setup`, admin, `/api/data`, `/api/send`, `robots`, and the office. The repository root is the public demo and has no private link. Do not deploy the repository root, and do not merge to `main` until the project's Root Directory is `skill/reference`. Framework Next.js. Install `npm install`. Build `next build`. No custom output directory.
 
 **Canonical reference: https://grok-bot-3d-campus-demo.vercel.app** (invented data, no login).
 Before you build, open it and take your own reference screenshots, so you know what "done" looks like:
